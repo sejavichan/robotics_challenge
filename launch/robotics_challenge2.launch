@@ -12,6 +12,9 @@
 
 	<!--Start the map server for the path planner-->
  	<node name="map_server" pkg="map_server" type="map_server" args="$(find robotics_challenge)/maps/robotics_lab.yaml"/>
+	<node pkg="costmap_2d" type="costmap_2d_node" name="costmap_2d" output="screen">
+        <rosparam command="load" file="$(find robotics_challenge)/cfg/global_costmap_params.yaml" />
+    </node>
 	
 	<!--Start the Montecarlo Localization module-->
 	<node pkg="amcl" type="amcl" name="amcl" args="scan:=/scan">
