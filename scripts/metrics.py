@@ -10,6 +10,7 @@ import sys
 import math
 import rospy
 import tf
+import numpy as np
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import PointStamped
 
@@ -17,12 +18,16 @@ class Metrics:
     def __init__(self):
        
         self.listener = tf.TransformListener()
+        
+        self.goal_reached = False
     
         if not(rospy.has_param('~goal')):
             rospy.logfatal("You must specify the goal to this module via parameter server")
             
         self.base_frame = rospy.get_param('base_frame', default='base_link')
         self.global_frame = rospy.get_param('global_frame', default='map')
+        
+        self.output_file = rospy.get_param('output_file', default='metrics.txt')
             
         self.goal_x = rospy.get_param('~goal/x', default=5)
         self.goal_y = rospy.get_param('~goal/y', default=5)  
@@ -51,10 +56,10 @@ class Metrics:
 
         return (t[0], t[1])
         
-	        
-            
-      
     def update(self):
+        if self.goal_reached:
+            return
+        
         # rospy.loginfo("Metrics node. Acquiring new data")
         px,py = self.getTransform()
         self.distance += math.sqrt( (px-self.px)**2 + (py-self.py)**2)
@@ -67,15 +72,23 @@ class Metrics:
         self.py = py
         
         if dist_goal < self.goal_gap:
-            self.elapsed_time = rospy.Time.now() - self.init_time
+            aux = rospy.Time.now() - self.init_time
+            self.elapsed_time = float(aux.secs+aux.nsecs*1e-9)
             rospy.loginfo("Goal time. Elapsed time: %f", self.elapsed_time)
+            self.goal_reached = True
 
     def shutdown(self):
         # stop turtlebot
         rospy.loginfo("Stopped Metrics node. Generating statistics")
         (px, py) = self.getTransform()
-        
-	    
+        try:
+            with open(self.output_file,'w') as f:
+                f.write('Elapsed time: %f\n'%(float(self.elapsed_time)))
+                f.write('Traveled Distance: %f\n'%(self.distance))
+                
+            rospy.loginfo('File exported successfully. Filename: %s', self.output_file)
+        except OSError as e:
+            rospy.logerr('Could not save output file. Filename = %s', str(e))
  
 if __name__ == '__main__':
     try:
