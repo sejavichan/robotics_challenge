@@ -15,7 +15,7 @@
 
   <node name="metrics" pkg="robotics_challenge" type="metrics.py">
     <param name="goal/x" value="$(arg goal_x)"/>
-    <param name="goal/y" value="$(arg goal_y)/>
+    <param name="goal/y" value="$(arg goal_y)"/>
   </node>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
