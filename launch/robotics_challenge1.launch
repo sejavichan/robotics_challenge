@@ -4,9 +4,9 @@
 	 <!-- start gazebo with the simulated scenario -->
 	
 	<include file="$(find robotics_challenge)/launch/turtlebot_world.launch">
-    <arg name="init_x" value ="0" />
-    <arg name="init_y" value ="-4.4" />
-    <arg name="init_a" value ="0" />
+    	<arg name="init_x" value ="0" />
+    	<arg name="init_y" value ="-4.4" />
+    	<arg name="init_a" value ="0" />
 		<arg name="world_file" value="$(find robotics_challenge)/worlds/robotics_lab.world" />
 	</include>
 
