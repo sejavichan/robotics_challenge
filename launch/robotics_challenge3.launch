@@ -3,6 +3,8 @@
 	<param name="/use_sim_time" value="true" />
 	 <!-- start gazebo with the simulated scenario -->
     <include file="$(find robotics_challenge)/launch/turtlebot_world.launch">
+		<arg name="goal_x" value ="1.13" />
+		<arg name="goal_y" value ="1.92" />
 		<arg name="world_file" value="$(find turtlebot3_gazebo)/worlds/turtlebot3_house.world" />
 	</include>
 

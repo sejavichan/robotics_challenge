@@ -7,6 +7,9 @@
     	<arg name="init_x" value ="0" />
     	<arg name="init_y" value ="-4.4" />
     	<arg name="init_a" value ="0" />
+		<arg name="goal_x" value ="2" />
+		<arg name="goal_y" value ="4.85" />
+		
 		<arg name="world_file" value="$(find robotics_challenge)/worlds/robotics_lab.world" />
 	</include>
 
