@@ -45,6 +45,7 @@ class Metrics:
 
         self.distance = 0
         self.init_time = rospy.Time.now()
+        self.elapsed_time = -1.0
         
         
     def getTransform(self):
