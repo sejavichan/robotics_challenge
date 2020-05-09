@@ -24,10 +24,10 @@ class Metrics:
         if not(rospy.has_param('~goal')):
             rospy.logfatal("You must specify the goal to this module via parameter server")
             
-        self.base_frame = rospy.get_param('base_frame', default='base_link')
-        self.global_frame = rospy.get_param('global_frame', default='map')
+        self.base_frame = rospy.get_param('~base_frame', default='base_link')
+        self.global_frame = rospy.get_param('~global_frame', default='map')
         
-        self.output_file = rospy.get_param('output_file', default='metrics.txt')
+        self.output_file = rospy.get_param('~output_file', default='metrics.txt')
             
         self.goal_x = rospy.get_param('~goal/x', default=5)
         self.goal_y = rospy.get_param('~goal/y', default=5)  
