@@ -1,9 +1,17 @@
 <?xml version="1.0"?>
 <launch>
 	<param name="/use_sim_time" value="true" />
+
+	<arg name="init_x" default ="0" />
+  	<arg name="init_y" default ="0.35" />
+  	<arg name="init_a" default ="0" />
+
 	 <!-- start gazebo with the simulated scenario -->
     <include file="$(find robotics_challenge)/launch/turtlebot_world.launch">
 		<arg name="world_file" value="$(find turtlebot3_gazebo)/worlds/turtlebot3_house.world" />
+		<arg name="init_x" value ="$(arg init_x)" />
+    	<arg name="init_y" value ="$(arg init_y)" />
+    	<arg name="init_a" value ="$(arg init_a)" />
 	</include>
 
 	<!--Start the map server and the costmap for the path planner-->
@@ -14,9 +22,9 @@
 
 	<!--Start the Montecarlo Localization module-->
 	<node pkg="amcl" type="amcl" name="amcl" args="scan:=/scan">
-		<param name="initial_pose_x" value="0" /> 
-    		<param name="initial_pose_y" value="0" />
-		<param name="initial_pose_a" value="0" />
+		<param name="initial_pose_x" value="$(arg init_x)" /> 
+    	<param name="initial_pose_y" value="$(arg init_y)" />
+		<param name="initial_pose_a" value="$(arg init_a)" />
 	</node>
 	
 	<node pkg="rviz" type="rviz" name="rviz" args="-d $(find robotics_challenge)/rviz/turtlebot.rviz"/>
