@@ -7,13 +7,13 @@ sudo aptitude install ${P}ar-marker-tracking ${P}ar-pair-approach ${P}ar-pair-tr
 ${P}joyop ${P}keyop ${P}localization-manager ${P}math-toolkit ${P}msgs ${P}navi-toolkit ${P}navigator ${P}rapps ${P}safety-controller ${P}velocity-smoother ${P}virtual-sensor ${P}waypoint-provider ${P}waypoints-navi -y
 
 # Install kobuki stuff
-sudo aptitude install ros-melodic-kobuki-core ros-melodic-kobuki-dock-drive ros-melodic-kobuki-driver ros-melodic-kobuki-ftdi ros-melodic-kobuki-msgs -y
+sudo apt install ros-melodic-kobuki-core ros-melodic-kobuki-dock-drive ros-melodic-kobuki-driver ros-melodic-kobuki-ftdi ros-melodic-kobuki-msgs -y
 
 # Install turtlebot3 packages
-sudo aptitude install ros-melodic-turtlebot3-gazebo -y
+sudo apt install ros-melodic-turtlebot3-gazebo -y
 
 # Additional utils
-sudo aptitude install pyqt5-dev-tools ros-melodic-ecl-core -y
+sudo apt install pyqt5-dev-tools ros-melodic-ecl-core -y
 
 # Install the rosinstall stuff in the
 roscd
