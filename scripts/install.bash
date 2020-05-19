@@ -15,7 +15,7 @@ sudo aptitude install ros-melodic-turtlebot3-gazebo -y
 # Additional utils
 sudo aptitude install pyqt5-dev-tools ros-melodic-ecl-core -y
 
-# Install the rosisntall stuff in the
+# Install the rosinstall stuff in the
 roscd
 cd ../src
 rosinstall . robotics_challenge/robotics_challenge.rosinstall
