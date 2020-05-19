@@ -13,6 +13,7 @@ import tf
 import numpy as np
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import PointStamped
+from sensor_msgs.msg import LaserScan
 
 class Metrics:
     def __init__(self):
@@ -45,8 +46,15 @@ class Metrics:
 
         self.distance = 0
         self.init_time = rospy.Time.now()
+        self.elapsed_time = -1.0
+
+        self.historic_min_range = []
         
-        
+        rospy.Subscriber("/scan", LaserScan, self.callback)
+
+    def callback(self, data):
+        self.historic_min_range.append(min(data.ranges))
+
     def getTransform(self):
         try:
             (t,r) = self.listener.lookupTransform('map','base_link', rospy.Time(0))
@@ -85,7 +93,11 @@ class Metrics:
             with open(self.output_file,'w') as f:
                 f.write('Elapsed time: %f\n'%(float(self.elapsed_time)))
                 f.write('Traveled Distance: %f\n'%(self.distance))
-                
+                if (len(self.historic_min_range) > 0):
+                    f.write('Min distance to obstacles: %f\n'%(min(self.historic_min_range)))
+                    f.write('Historic range: ')
+                    f.write(' '.join(str(a) for a in self.historic_min_range))
+                    f.write('\n')   
             rospy.loginfo('File exported successfully. Filename: %s', self.output_file)
         except OSError as e:
             rospy.logerr('Could not save output file. Filename = %s', str(e))

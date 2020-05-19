@@ -8,6 +8,8 @@
 
 	 <!-- start gazebo with the simulated scenario -->
     <include file="$(find robotics_challenge)/launch/turtlebot_world.launch">
+		<arg name="goal_x" value ="1.13" />
+		<arg name="goal_y" value ="1.92" />
 		<arg name="world_file" value="$(find turtlebot3_gazebo)/worlds/turtlebot3_house.world" />
 		<arg name="init_x" value ="$(arg init_x)" />
     	<arg name="init_y" value ="$(arg init_y)" />
