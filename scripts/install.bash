@@ -1,6 +1,17 @@
 #! /bin/bash
 # Note: Use this script as a regular user. It will request sudo on demand
 
+if [[ $# -ne 1 ]]
+then
+    echo "Use: $0 <root target catkin workspace location>"
+    exit -1
+fi
+
+# Install the rosinstall stuff in the workspace
+cd $1/src
+rosinstall . file:robotics_challenge/robotics_challenge.rosinstall
+
+
 ## Install yocs stuff
 P=ros-melodic-yocs-
 sudo aptitude install ${P}ar-marker-tracking ${P}ar-pair-approach ${P}ar-pair-tracking ${P}cmd-vel-mux ${P}controllers \
@@ -15,10 +26,6 @@ sudo apt install ros-melodic-turtlebot3-gazebo -y
 # Additional utils
 sudo apt install pyqt5-dev-tools ros-melodic-ecl-core -y
 
-# Install the rosinstall stuff in the
-roscd
-cd ../src
-rosinstall . robotics_challenge/robotics_challenge.rosinstall
 
 # Compile the stuff
 cd ..
