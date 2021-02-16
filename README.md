@@ -5,11 +5,16 @@ Robotic challenge scenarios for the Robotics and Advanced subject of UPO's Softw
 
 This branch has been specifically adapted to the ROS Melodic distribution, and tested in Ubuntu 18.04.
 
-We provide you with a useful installation script that you can use for easily installing it into a ROS workspace. To use it we assume that you have sourced the desired workspace. To do this you can use:
+We provide you with a useful installation script that you can use for easily installing it into a ROS workspace. To use it you have to specify the target catkin workspace where the node should be installed. To do this you can use:
 
 ```
-source <your_workspace>/devel/setup.bash
-rosrun robotics_challenge install.bash
+rosrun robotics_challenge install.bash <location of target workspace>
+```
+
+Example:
+
+```
+rosrun robotics_challenge install.bash ~/catkin_ws
 ```
 
 ## How to use the challenge
