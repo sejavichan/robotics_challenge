@@ -50,7 +50,7 @@
 	
 	<!--Start the Montecarlo Localization module-->
 	<node pkg="amcl" type="amcl" name="amcl" args="scan:=/scan">
-		<param name="initial_pose_x" value="$(arg init_x" /> 
+		<param name="initial_pose_x" value="$(arg init_x)" /> 
         <param name="initial_pose_y" value="$(arg init_y)" />
 		<param name="initial_pose_a" value="0" />
 	</node>
