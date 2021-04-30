@@ -8,17 +8,12 @@
     <arg name="init_a" default ="0" />
 	<arg name="goal_x" default ="2" />
 	<arg name="goal_y" default ="4.85" />
-
-
     <arg name="map_name" default="robotics_lab.yaml"/>
     <arg name="map_file" default="$(find robotics_challenge)/maps/$(arg map_name)"/>
     
     <arg name="world_name" default="$(find robotics_challenge)/worlds/robotics_lab.world" if="$(eval scenario == 'lab')"/>
     <arg name="world_name" default="$(find robotics_challenge)/worlds/robotics_lab_obstacle.world" if="$(eval scenario == 'obstacle')"/>
     <arg name="world_name" default="$(find turtlebot3_gazebo)/worlds/turtlebot3_house.world" if="$(eval scenario == 'house')"/>
-
-
-    
 	
 	 <!-- start gazebo with the simulated scenario -->
 	<include file="$(find gazebo_ros)/launch/empty_world.launch" >		
@@ -28,9 +23,8 @@
         <arg name="debug" value="false"/>
 	</include>
 
-
     <param name="robot_description" command="$(find xacro)/xacro $(find turtlebot3_description)/urdf/turtlebot3_waffle.urdf.xacro" />
-    <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"  args="-urdf -model turtlebot3_waffle -x $(arg init_x) -y $(arg init_y) -z 0 -param robot_description" />
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"  args="-urdf -model turtlebot3_waffle -x $(arg init_x) -y $(arg init_y) -z 0.02 -param robot_description" />
 
     <!-- for GT -->
 	<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
