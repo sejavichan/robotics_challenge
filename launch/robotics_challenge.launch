@@ -14,6 +14,7 @@
     <arg name="world_name" default="$(find robotics_challenge)/worlds/robotics_lab.world" if="$(eval scenario == 'lab')"/>
     <arg name="world_name" default="$(find robotics_challenge)/worlds/robotics_lab_obstacle.world" if="$(eval scenario == 'obstacle')"/>
     <arg name="world_name" default="$(find turtlebot3_gazebo)/worlds/turtlebot3_house.world" if="$(eval scenario == 'house')"/>
+    <arg name="world_name" default="$(find turtlebot3_gazebo)/worlds/turtlebot3_stage_4.world" if="$(eval scenario == 'maze')"/>
 	
 	 <!-- start gazebo with the simulated scenario -->
 	<include file="$(find gazebo_ros)/launch/empty_world.launch" >		
