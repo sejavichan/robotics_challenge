@@ -27,3 +27,22 @@ A convenient bash script is available for each scenario (1-3). Example:
 ```
 $  rosrun robotics_challenge robotics_challenge_1.bash
 ```
+
+##Instrucciones para ejecutar el challenge en los diferentes escenarios:
+
+Para ejecutar el challenge en los diferentes escenarios primero habrá que ejecutar el escenario deseado, esto se hará accediendo a la ruta dentro de nuestro workspace:
+catkin_ws/src/robotics_challenge/scripts
+
+Una vez dentro de la ruta anterior, se ejecutará el comando ./robotics_challenge_1.bash 
+Siendo robotics_challenge_1.bash el escenario 1 y teniendo hasta 4 escenarios. Por lo que se podrá ejecutar el escenario que queramos.
+
+Una vez esté abierto nuestro escenario hay que llamar con roslaunch en el paquete rva_basic_tools al fichero lanzador_challenge.launch
+En la llamada se le podrá pasar por parámetros el "goal_x" y el "goal_y" que definirán a dónde queremos mandar el robot.
+
+Un ejemplo de la llamada sería: roslaunch rva_basic_tools lanzador_challenge.launch goal_x:=1 goal_y:=1
+
+En este caso para el escenario 1 el robot se dirigirá hacia la posición x=1 y=1 del escenario que tengamos ejecutado.
+
+
+
+
