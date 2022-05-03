@@ -28,7 +28,7 @@ A convenient bash script is available for each scenario (1-3). Example:
 $  rosrun robotics_challenge robotics_challenge_1.bash
 ```
 
-##Instrucciones para ejecutar el challenge en los diferentes escenarios:
+## Instrucciones para ejecutar el challenge en los diferentes escenarios:
 
 Para ejecutar el challenge en los diferentes escenarios primero habrá que ejecutar el escenario deseado, esto se hará accediendo a la ruta dentro de nuestro workspace:
 catkin_ws/src/robotics_challenge/scripts
