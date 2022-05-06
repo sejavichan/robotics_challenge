@@ -33,16 +33,28 @@ $  rosrun robotics_challenge robotics_challenge_1.bash
 Para ejecutar el challenge en los diferentes escenarios primero habrá que ejecutar el escenario deseado, esto se hará accediendo a la ruta dentro de nuestro workspace:
 catkin_ws/src/robotics_challenge/scripts
 
-Una vez dentro de la ruta anterior, se ejecutará el comando ./robotics_challenge_1.bash 
+Una vez dentro de la ruta anterior, se ejecutará el comando 
+```
+./robotics_challenge_1.bash 
+```
 Siendo robotics_challenge_1.bash el escenario 1 y teniendo hasta 4 escenarios. Por lo que se podrá ejecutar el escenario que queramos.
 
 Una vez esté abierto nuestro escenario hay que llamar con roslaunch en el paquete rva_basic_tools al fichero lanzador_challenge.launch
 En la llamada se le podrá pasar por parámetros el "goal_x" y el "goal_y" que definirán a dónde queremos mandar el robot.
 
-Un ejemplo de la llamada sería: roslaunch rva_basic_tools lanzador_challenge.launch goal_x:=1 goal_y:=1
-
+Un ejemplo de la llamada sería: 
+```
+roslaunch rva_basic_tools lanzador_challenge.launch goal_x:=1 goal_y:=1
+```
 En este caso para el escenario 1 el robot se dirigirá hacia la posición x=1 y=1 del escenario que tengamos ejecutado.
 
+## Lanzador_challenge.launch
+
+Se trata del launcher de nuestro código, en nuestro caso ejecuta 4 módulos:
+1. El primer módulo se trata del planificador de caminos, el cual ejecuta el planner_node.py que se nutre del AStar.py el cual ejecuta un algoritmo de A* para calcular el camino hacia el punto pasado por parámetro.
+2. El segundo módulo es el scan_downsampler, este módulo sirve para controlar los puntos que queremos obtener del laser y una vez los obtenemos los pasamos a un marcador.
+3. Es el módulo de contro a un punto (ControlGoal), sirve para indicar al robot que velocidad angular y lineal tiene que tener para llegar al punto destino.
+4. Por último, el cuarto módulo es el módulo de control de colisiones (coll_avoidance) que mediante el método de campos potenciales evita que si se interpone un obstáculo entre el punto objetivo y el robot, el robot colisione.
 
 
 
