@@ -32,6 +32,10 @@ En este caso el robot se dirigirá hacia la posición x=1 y=1 del escenario que 
 
 Se trata del launcher de nuestro código, en nuestro caso ejecuta 4 módulos:
 1. El primer módulo se trata del planificador de caminos, el cual ejecuta el planner_node.py que se nutre del AStar.py el cual ejecuta un algoritmo de A* para calcular el camino hacia el punto pasado por parámetro.
+  -Parámtros:
+    goal/x-->Será lo que indique la coordenada X del punto destino
+    goal/y-->Será lo que indique la coordenada Y del punto destino
+
 2. El segundo módulo es el scan_downsampler, este módulo sirve para controlar los puntos que queremos obtener del laser y una vez los obtenemos los pasamos a un marcador.
 3. Es el módulo de contro a un punto (ControlGoal), sirve para indicar al robot que velocidad angular y lineal tiene que tener para llegar al punto destino.
 4. Por último, el cuarto módulo es el módulo de control de colisiones (coll_avoidance) que mediante el método de campos potenciales evita que si se interpone un obstáculo entre el punto objetivo y el robot, el robot colisione.
