@@ -20,6 +20,7 @@ rosrun robotics_challenge robotics_challenge_1.bash
 Siendo robotics_challenge_1.bash el escenario 1 y teniendo hasta 4 escenarios. Por lo que se podrá ejecutar el escenario que se desee.
 
 Una vez esté abierto nuestra simulación hay que llamar con roslaunch en el paquete rva_basic_tools al fichero lanzador_challenge.launch
+
 En la llamada se le podrá pasar por parámetros el "goal_x" y el "goal_y" que definirán a dónde queremos mandar el robot.
 
 Un ejemplo de la llamada sería: 
