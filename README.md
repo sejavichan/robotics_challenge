@@ -27,7 +27,7 @@ Un ejemplo de la llamada sería:
 ```
 roslaunch rva_basic_tools lanzador_challenge.launch goal_x:=1 goal_y:=1
 ```
-En este caso el robot se dirigirá hacia la posición x=1 y=1 del escenario que tengamos ejecutado.
+En este caso, el robot se dirigirá hacia la posición x=1 y=1 del escenario que tengamos ejecutado.
 
 ## Lanzador_challenge.launch
 
