@@ -32,7 +32,9 @@ En este caso el robot se dirigirá hacia la posición x=1 y=1 del escenario que 
 
 Se trata del launcher de nuestro código, en nuestro caso ejecuta 4 módulos:
 1. El primer módulo se trata del planificador de caminos, el cual ejecuta el planner_node.py que se nutre del AStar.py el cual ejecuta un algoritmo de A* para calcular el camino hacia el punto pasado por parámetro.
+  
   -Parámtros:
+    
     goal/x-->Será lo que indique la coordenada X del punto destino
     goal/y-->Será lo que indique la coordenada Y del punto destino
 
