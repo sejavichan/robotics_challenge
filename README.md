@@ -39,7 +39,7 @@ Se trata del launcher de nuestro código, en nuestro caso ejecuta 4 módulos:
     goal/x-->Será lo que indique la coordenada X del punto destino
     goal/y-->Será lo que indique la coordenada Y del punto destino
 2. El segundo módulo es el scan_downsampler, este módulo sirve para controlar los puntos que queremos obtener del laser y una vez los obtenemos los pasamos a un marcador.
-3. Es el módulo de contro a un punto (ControlGoal), sirve para indicar al robot que velocidad angular y lineal tiene que tener para llegar al punto destino.
+3. Es el módulo de control a un punto (ControlGoal), sirve para indicar al robot que velocidad angular y lineal tiene que tener para llegar al punto destino.
 
   -Parámetros:
   
