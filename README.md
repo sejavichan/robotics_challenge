@@ -29,6 +29,12 @@ roslaunch rva_basic_tools lanzador_challenge.launch goal_x:=1 goal_y:=1
 ```
 En este caso, el robot se dirigirá hacia la posición x=1 y=1 del escenario que tengamos ejecutado.
 
+Para el challenge 4, ejecutar el comando especificando el parámetro algorit=1 de la siguiente manera:
+```
+roslaunch rva_basic_tools lanzador_challenge.launch goal_x:=1 goal_y:=1 algorit:=1
+
+```
+
 ## Lanzador_challenge.launch
 
 Se trata del launcher de nuestro código, en nuestro caso ejecuta 4 módulos:
@@ -39,6 +45,11 @@ Se trata del launcher de nuestro código, en nuestro caso ejecuta 4 módulos:
     goal/x-->Será lo que indique la coordenada X del punto destino
     goal/y-->Será lo que indique la coordenada Y del punto destino
 2. El segundo módulo es el scan_downsampler, este módulo sirve para controlar los puntos que queremos obtener del laser y una vez los obtenemos los pasamos a un marcador.
+
+  -Parámetros:
+  
+    n-->Indica el número de espacios entre punto y punto. Es decir a mayor n, menos puntos detecta.
+
 3. Es el módulo de control a un punto (ControlGoal), sirve para indicar al robot que velocidad angular y lineal tiene que tener para llegar al punto destino.
 
   -Parámetros:
